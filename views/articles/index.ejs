@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog App</title>
+  <!-- Bootstrap CSS -->
+  <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles -->
+  <style>
+    /* Additional custom styles can go here */
+    .article-container {
+      margin-top: 50px;
+    }
+    .article {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container article-container">
+    <h1 class="mt-5">Articles</h1>
+    <a href="/articles/new" class="btn btn-success">New Article</a>
+    <div class="row">
+      <% articles.forEach(article => { %>
+        <div class="col-md-6">
+          <div class="card article">
+            <div class="card-body">
+              <h5 class="card-title"><%= article.title %></h5>
+              <p class="card-text"><%= article.description %></p>
+              <p class="card-text"><small class="text-muted">Created at: <%= article.createdAt %></small></p>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

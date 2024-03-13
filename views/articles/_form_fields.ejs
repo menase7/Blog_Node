@@ -1,0 +1,17 @@
+<!-- _form_fields.ejs -->
+<div class="mb-3">
+  <label for="title" class="form-label">Title</label>
+  <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" required>
+</div>
+
+<div class="mb-3">
+  <label for="description" class="form-label">Description</label>
+  <textarea class="form-control" id="description" name="description" rows="2" placeholder="Enter description" required><% article.description %></textarea>
+</div>
+
+<div class="mb-3">
+  <label for="markdown" class="form-label">Markdown</label>
+  <textarea class="form-control" id="description" name="markdown" rows="5" placeholder="Enter Markdown" required><% article.markdown %></textarea>
+</div>
+<a href="/" class="btn btn-secondary">Cancel</a>
+<button type="submit" class="btn btn-primary">Save</button>
