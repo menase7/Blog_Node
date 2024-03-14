@@ -3,8 +3,8 @@ const Article = require('../models/articles')
 const router = express.Router()
 
 
-router.get('/:id', async (req, res)=>{
-  const article = await Article.findById(re.params.id)
+router.get('/:slug', async (req, res)=>{
+  const article = await Article.findOne(req.params.slug)
   if(!article){
     res.redirect('/')
   }
@@ -18,13 +18,17 @@ router.post('/', async (req, res)=>{
     const article = await Article.create({
     title, description, markdown
   })
-  res.redirect(`/articles/${article.id}`);
+  res.redirect(`/articles/${article.slug}`);
   } catch(e){
     res.render('articles/new', {article: article})
   }
   
 })
 
+router.delete('/id', async (req,res)=>{
+  await Article.findByIdAndDelete(req.params.id);
+  res.redirect('/');
+})
 
 
 module.exports = router

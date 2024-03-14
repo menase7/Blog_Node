@@ -20,7 +20,12 @@
 <body>
   <div class="container article-container">
     <h1 class="mt-5"><%= article.title %></h1>
-    <div><%= article.createdAt.toLocalDateString()</div>
+    <div><%= article.createdAt %></div>
+    <a href="/" class="btn btn-success">All Articles</a>
+    <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+    <div>
+      <%= article.markdown %>
+    </div>
     
   <!-- Bootstrap JS -->
   <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
